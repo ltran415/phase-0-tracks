@@ -18,8 +18,6 @@
 
 #output: a hash with the clients input
 
-
-
 my_application = {
   :name => "",
   :taste => "",
@@ -33,6 +31,7 @@ my_application = {
 }
 
 #user input
+
 puts "Full name?"
 
   my_application[:name] = gets.chomp
@@ -116,7 +115,7 @@ puts "Type changes to taste, or type 'none' to skip"
 
  changed_taste = gets.chomp
 
-  if changed_name != "none"
+  if changed_taste != "none"
 
     my_application[:taste] = changed_taste
 
@@ -125,72 +124,72 @@ puts "Type changes to taste, or type 'none' to skip"
 
 puts "Type changes to favorite color or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_color = gets.chomp
 
-  if changed_name != "none"
+  if changed_color != "none"
 
-    my_application[:favorite_color] = changed_name
+    my_application[:favorite_color] = changed_color
 
   end
 
 
 puts "Type changes to number of rooms or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_num = gets.chomp
 
-  if changed_name != "none"
+  if changed_num != "none"
 
-    my_application[:number_of_rooms] = changed_name
+    my_application[:number_of_rooms] = changed_num
 
   end
 
 puts "Type changes to living in city or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_living = gets.chomp
 
-  if changed_name != "none"
+  if changed_living != "none"
 
-    my_application[:lives_in_city] = changed_name
+    my_application[:lives_in_city] = changed_living
 
   end
 
 puts "Type changes to having pets or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_pets = gets.chomp
 
-  if changed_name != "none"
+  if changed_pets != "none"
 
-    my_application[:has_pets] = changed_name
+    my_application[:has_pets] = changed_pets
 
   end
 
 puts "Type changes to marital status or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_marital = gets.chomp
 
-  if changed_name != "none"
+  if changed_marital != "none"
 
-    my_application[:is_married] = changed_name
+    my_application[:is_married] = changed_marital
 
   end
 
 puts "Type changes to having children or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_children = gets.chomp
 
-  if changed_name != "none"
+  if changed_children != "none"
 
-    my_application[:has_children] = changed_name
+    my_application[:has_children] = changed_children
 
   end
 
 puts "Type changes to hating these questions or type 'none' to skip"
 
- changed_name = gets.chomp
+ changed_question = gets.chomp
 
-  if changed_name != "none"
+  if changed_question != "none"
 
-    my_application[:hates_these_questions] = changed_name
+    my_application[:hates_these_questions] = changed_question
 
   end
 
