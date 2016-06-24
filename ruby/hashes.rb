@@ -194,5 +194,3 @@ puts "Type changes to hating these questions or type 'none' to skip"
   end
 
 puts my_application
-
-puts "Thanks for the info!"
