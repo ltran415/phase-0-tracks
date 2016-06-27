@@ -124,3 +124,27 @@ p ordered_items
 
 # another method that filters a data structure for only items that
 # do satisfy a certain condition
+
+# array method
+
+fruits3 = ["mango", "pineapple", "mandarin", "durian", "jackfruit"]
+
+fruits3.keep_if{|fruit| fruit != "durian"}
+
+p fruits3
+
+puts "--------------------------------------------------"
+
+# hash method
+
+ordered_items2 = {
+  :red_snapper => 10,
+  :rice => 2,
+  :soup => 3,
+  :dessert1 => 3,
+  :dessert2 => 4
+}
+
+ordered_items2.keep_if {|item, price| price >= 4 }
+
+p ordered_items2
