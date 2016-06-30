@@ -9,7 +9,7 @@
 
 
 
-# designing a Puppy class
+# Designing a Puppy class
 
 class Puppy
 end
