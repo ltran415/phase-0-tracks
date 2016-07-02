@@ -1,3 +1,6 @@
+# Assignment 6.2 Instance Methods
+
+
 class Puppy
 
   def initialize
@@ -34,6 +37,9 @@ class Puppy
 
 end
 
+# ------------------------------------------
+# driver code
+
 fido = Puppy.new
 
 puts fido.fetch("ball")
@@ -43,6 +49,9 @@ puts fido.speak(4)
 puts fido.dog_years(18)
 
 puts fido.play_dead
+
+# ------------------------------------------
+# implementing new class and loop
 
 class Tanuki
 
@@ -69,6 +78,9 @@ class Tanuki
 
 end
 
+# ------------------------------------------
+# driver code
+
 chopper = Tanuki.new
 
 puts chopper.eat_snack("cookies")
@@ -76,6 +88,9 @@ puts chopper.hours_slept(8)
 puts chopper.cuddle
 
 index = 0
+
+# ------------------------------------------
+# looping the instances into an array
 
 while index < 50
   tanuki = []
