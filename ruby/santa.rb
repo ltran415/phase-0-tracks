@@ -1,7 +1,8 @@
+
 class Santa
 
   attr_reader :reindeer_ranking
-  attr_accessor :name
+  attr_accessor :name, :age, :speak
 
   def initialize(name, gender, ethnicity, hair_color)
     @name = name
@@ -23,6 +24,7 @@ class Santa
   end
 
   def about
+    puts "#{@name} says ho, ho, ho! Haaaappy holidays!"
     puts "name: #{@name}"
     puts "age: #{@age}"
     puts "gender: #{@gender}"
@@ -85,7 +87,7 @@ example_names = ["Luffy", "Zoro", "Nami", "Robin", "Chopper", "Brooks", "Sanji"]
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 example_hair_colors = ["Blue", "Silver", "Red", "Pink", "Rainbow", "Green", "Lavender"]
-#example_age = rand(0..140)
+
 
 # using a loop to create many santas
 index = 0
@@ -94,6 +96,7 @@ while index < 1000
 
   example_genders.length.times do |i|
     santas << Santa.new(example_names.sample, example_genders.sample, example_ethnicities.sample, example_hair_colors.sample).about
+
   end
   santas.each {|age| age = @age }
   index += 1
