@@ -16,7 +16,7 @@ require_relative 'state_data'
 
 class VirusPredictor
 
-  # initializes the arguments for creating a new VirusPredictor instance
+  # initializes the class VirusPredictor and attributes
   # input: a string for state, integer for population_density and population
   # output: a new instance of VirusPredictor class
   def initialize(state_of_origin, population_density, population)
@@ -29,10 +29,12 @@ class VirusPredictor
   # input:
   # output: the return values for the methods predicted_deaths and speed_of_spread
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
+# renders everything below it as a private method
+# you use this method when you don't want the user to able to call the methods
   private
 
   # Takes population_density, population, state, and returns a printed statement of
@@ -40,7 +42,7 @@ class VirusPredictor
   # input: initialized class data for new instance
   # output: a printed statement of the number of deaths in the state
 
-  # def predicted_deaths(population_density, population, state)
+  # def predicted_deaths
   #   # predicted deaths is solely based on population density
   #   if @population_density >= 200
   #     number_of_deaths = (@population * 0.4).floor
@@ -60,12 +62,12 @@ class VirusPredictor
 
   # refactored
 
-    def predicted_deaths(population_density, population, state)
+    def predicted_deaths
       # predicted deaths is solely based on population density
       number_of_deaths =
       #number_of_deaths.floor =
-      @population *=
-      if @population_density >= 200
+
+  @population * if @population_density >= 200
         0.4
       elsif @population_density >= 150
         0.3
@@ -88,7 +90,7 @@ class VirusPredictor
   # output: returns a printed statement with the integer speed of how quickly
   # the virus will spread in the particular state
 
-  # def speed_of_spread(population_density, state) #in months
+  # def speed_of_spread #in months
   #   # We are still perfecting our formula here. The speed is also affected
   #   # by additional factors we haven't added into this functionality.
   #   speed = 0.0
@@ -111,23 +113,23 @@ class VirusPredictor
 
  # refactored
 
- def speed_of_spread(population_density, state) #in months
+ def speed_of_spread #in months
    # We are still perfecting our formula here. The speed is also affected
    # by additional factors we haven't added into this functionality.
 
   speed = 0
 
   speed += if @population_density >= 200
-        0.5
-     elsif @population_density >= 150
-        1
-     elsif @population_density >= 100
-        1.5
-     elsif @population_density >= 50
-        2
-     else
-        2.5
-          end
+            0.5
+         elsif @population_density >= 150
+            1
+         elsif @population_density >= 100
+            1.5
+         elsif @population_density >= 50
+            2
+         else
+            2.5
+              end
 
      puts " and will spread across the state in #{speed} months.\n\n"
 
@@ -173,3 +175,23 @@ end
 
 #=======================================================================
 # Reflection Section
+#
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# The STATE_DATA hash takes a string as a key, and another hash as its value. The population information hash
+# has a key of population_density, an integer representing the value,
+# a key of population, and an integer representing the value.
+
+# What does require_relative do? How is it different from require?
+# require_relative takes a filename and creates a path to that file if it's not in the same folder,
+# while require takes a libaray name and imports all methods and modules associated with that libary.
+
+# What are some ways to iterate through a hash?
+# An example would be you can use .each method like like one I use above or a for loop.
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# The thing that stood out the most was refactoring the method to not take arguments and only use the
+# instance varibles.
+
+# What concept did you most solidify in this challenge?
+# I think this challenge really help me understand instance varibles. Also iterating through
+# the hash is something that I am getting a good grasp on. 
