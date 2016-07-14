@@ -194,4 +194,4 @@ end
 
 # What concept did you most solidify in this challenge?
 # I think this challenge really help me understand instance varibles. Also iterating through
-# the hash is something that I am getting a good grasp on. 
+# the hash is something that I am getting a good grasp on.
