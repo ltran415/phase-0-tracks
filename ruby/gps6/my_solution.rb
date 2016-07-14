@@ -168,12 +168,6 @@ end
 
 
 #=======================================================================
-
-# release 6 Refactor virus_effects and make DRY
-
-
-
-#=======================================================================
 # Reflection Section
 #
 # What are the differences between the two different hash syntaxes shown in the state_data file?
