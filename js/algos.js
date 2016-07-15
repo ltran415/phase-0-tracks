@@ -56,7 +56,7 @@ function random_word_gen(integer) {
     var alphabet = ["a","b","c","d","e","f","g","h","i","j",
                     "k","l","m","n","o","p","q","r","s","t",
                     ,"v","w","x","y","z"];
-                    
+
     var random_num = Math.floor((Math.random() * 10) + 1);
     var random_num2 = Math.floor((Math.random() * 10) + 1) + random_num;
 
@@ -85,4 +85,14 @@ console.log(match_key_value({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 console.log(match_key_value({nam: "Buddy", age: 34}, {name: "Tamir", age: 54}))
 console.log(match_key_value({nam: "Buddy", age: 54}, {name: "Tamir", age: 54}))
 
+// Driver code: Generate Random Test Data
+
 console.log(random_word_gen(4))
+
+
+for (var i = 0; i < 10; i++){
+  words = random_word_gen(3);
+  console.log(words)
+  results = longest_char(words);
+  console.log(results)
+}
