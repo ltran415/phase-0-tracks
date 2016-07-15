@@ -43,3 +43,17 @@ var anotherCar = new Car("BMW", "3 series", 2002);
 
 console.log(anotherCar);
 anotherCar.honk();
+
+// Release 3: Research on Your Own
+
+// looping through the hash
+
+for (var key in horseHash) {
+  horseHash[names[i]]
+}
+
+console.log("----------------------")
+
+for (var value in horseHash) {
+  console.log(horseHash[value])
+}
