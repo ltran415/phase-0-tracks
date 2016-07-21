@@ -48,4 +48,27 @@ sqlite> SELECT * FROM characters;
 3|Uther|19|5/14/1966|true|3
 4|Jaina|20|8/4/1975|true|2
 5|Johanna|17|9/13/1972|true|1
-sqlite> 
+sqlite>
+
+research on your own:
+
+1. Some the available types of joins are Inner joins, and Left join.
+Inner - returns all the rows from both tables where all the rows match.
+If there are rows in first table that do not have matches in second table, those rows will not be listed.
+
+    sqlite> SELECT characters.id, classes.class FROM characters INNER JOIN classes ON characters.class_id=classes.id;
+    2|Assassin
+    3|Healer
+    4|Wizard
+    5|Warrior
+    sqlite>
+
+Left - returns all the rows from the first table, even if there are no matches in the second table.
+If there are rows in first table that do not have matches in second table, those rows also will be listed.
+
+    sqlite> SELECT characters.name, classes.class FROM characters LEFT JOIN classes ON characters.class_id=classes.class;
+    Thrall|
+    Uther|
+    Jaina|
+    Johanna|
+    sqlite>
