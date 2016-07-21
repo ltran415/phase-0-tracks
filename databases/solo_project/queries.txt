@@ -1,0 +1,51 @@
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM characters;
+1|Nova|17|4/14/1987|true|4
+2|Thrall|18|5/4/1976|false|4
+3|Uther|19|5/14/1966|true|3
+4|Jaina|20|8/4/1975|true|2
+5|Johanna|16|9/13/1972|true|1
+sqlite>
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE characters SET level=18 WHERE name="Nova";
+sqlite> UPDATE characters SET level=17 WHERE name="Johanna";
+sqlite> SELECT * FROM characters;
+1|Nova|18|4/14/1987|true|4
+2|Thrall|18|5/4/1976|false|4
+3|Uther|19|5/14/1966|true|3
+4|Jaina|20|8/4/1975|true|2
+5|Johanna|17|9/13/1972|true|1
+sqlite>
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM characters, classes WHERE characters.class_id = classes.id;
+1|Nova|18|4/14/1987|true|4|4|Assassin
+2|Thrall|18|5/4/1976|false|4|4|Assassin
+3|Uther|19|5/14/1966|true|3|3|Healer
+4|Jaina|20|8/4/1975|true|2|2|Wizard
+5|Johanna|17|9/13/1972|true|1|1|Warrior
+sqlite>
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT characters.name, classes.class FROM characters JOIN classes ON characters.class_id = classes.id;
+Nova|Assassin
+Thrall|Assassin
+Uther|Healer
+Jaina|Wizard
+Johanna|Warrior
+sqlite>
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> DELETE FROM characters WHERE name="Nova";
+sqlite> SELECT * FROM characters;
+2|Thrall|18|5/4/1976|false|4
+3|Uther|19|5/14/1966|true|3
+4|Jaina|20|8/4/1975|true|2
+5|Johanna|17|9/13/1972|true|1
+sqlite> 
