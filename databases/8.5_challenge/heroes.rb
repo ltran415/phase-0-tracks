@@ -35,3 +35,13 @@
   def log_win(db, map, player_1, player_2)
     db.execute("INSERT INTO heroes_info (map, player_1, player_2) VALUES (?, ?, ?)", [map],[player_1,[player_2]])
   end
+
+  # user interface
+  puts "Map name please: "
+  map = gets.chomp
+  puts "First character: "
+  player_1 = gets.chomp
+  puts "Second character: "
+  player_2 = gets.chomp
+
+  log_win(db, map, player_1, player_2)
