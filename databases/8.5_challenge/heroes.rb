@@ -75,10 +75,21 @@
   end
 
   # create a method that will allow the user to input information into the table
+  def print_info(db, table_name)
+    rows = db.execute("select id, name from #{table_name}")
+    rows.each do |row|
+      puts "#{row[0]} \t #{row[1]}"
+    end
+  end
+
   def log_win(db)
-    puts "Map name please: "
+    print_info(db, 'maps')
+    puts "Map number please: "
     map = gets.chomp
+
+    print_info(db, 'characters')
     puts "First character: "
+
     player_1 = gets.chomp
     puts "Second character: "
     player_2 = gets.chomp
@@ -90,26 +101,37 @@
     #pseudocode
     # search through the heroes_info according to the user input for map
     # find the player_1 and player_2 combo that appears most frequent and return that
-    rows = db.execute( "select games_won, player_1, player_2 from heroes_info" )
-    wins = rows.inject(Hash.new(0)){ |h, v| h[v] += 1; h }
-    rows.max_by {|v| wins[v] }
-  end
+    print_info(db, 'maps')
+    puts "Map number please: "
+    map_id = gets.chomp
 
+    rows = db.execute( "
+      SELECT c1.name, c2.name FROM games_won g
+      JOIN characters c1 ON c1.id = g.player_1_id
+      JOIN characters c2 ON c2.id = g.player_2_id
+      WHERE g.map_id=(?)",[map_id])
+
+    wins = rows.inject(Hash.new(0)){ |h, v| h[v] += 1; h }
+    best_combo = rows.max_by {|v| wins[v] }
+    if best_combo.nil?
+      puts "No games have been logged for this map :("
+    else
+      puts "Player one should be: #{best_combo[0]} and Player two should be: #{best_combo[1]}"
+    end
+  end
 
 #driver code
 db = inititalize_database
+user_input = nil
+until user_input == "done"
 
-puts "Welcome to the program that can calculate the best combo of heroes for the map of your choosing based on your wins.
-To log your wins, please enter 'log', to see the best possible combo for a map type 'combo', otherwise type 'done'."
-
-want_exit = nil
-
-until want_exit == "done"
+  puts "Welcome to the program that can calculate the best combo of heroes for the map of your choosing based on your wins.
+  To log your wins, please enter 'log', to see the best possible combo for a map type 'combo', otherwise type 'done'."
   user_input = gets.chomp
 
   if user_input == 'log'
     log_win(db)
-  elsif user_input 'combo'
+  elsif user_input == 'combo'
     best_combo(db)
   end
 end
