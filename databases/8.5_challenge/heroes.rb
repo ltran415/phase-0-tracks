@@ -30,3 +30,8 @@
   SQL
 
   db.execute(create_table_cmd)
+
+  # create a method that will allow the user to input information into the table
+  def log_win(db, map, player_1, player_2)
+    db.execute("INSERT INTO heroes_info (map, player_1, player_2) VALUES (?, ?, ?)", [map],[player_1,[player_2]])
+  end
