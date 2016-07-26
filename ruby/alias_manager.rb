@@ -158,7 +158,7 @@ final_alias.rstrip
 
 end
 
-p spy_alias("Felicia Torres")
+# p spy_alias("Felicia Torres")
 
 #=> "Vussit Gimodoe"
 
@@ -170,10 +170,10 @@ until user_input == "done"
 
   puts "Welcome to the alias spy name maker. Please enter in a first and last name in this format 'first_name last_name'. Type done to exit."
 
-  user_input = gets.chomp unless gets.chomp == 'done'
+    user_input = gets.chomp
 
+    spy_name = spy_alias(user_input)
 
-  spy_name = spy_alias(user_input)
+    puts "Your spy name is: #{spy_name}\r\n\r\n" unless user_input == 'done'
 
-  puts "Your spy name is: #{spy_name}"
 end
