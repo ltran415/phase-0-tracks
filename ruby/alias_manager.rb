@@ -29,7 +29,7 @@ end
 #input: string
 #output: all the vowels in the string moved to the next letter in the 'aeiou'
 def next_vowel(string)
-  vowels = ['a','e','i','o','u']
+  vowels = ['a','e','i','o','u','v']
   new_string = ""
   split_letters = string.split("")
   #=> ["L", "o", "n", "g"]
@@ -43,7 +43,7 @@ def next_vowel(string)
    elsif i == vowels[3]
      i = vowels[4]
    elsif i == vowels[4]
-      i = vowels[0]
+      i = vowels[5]
    end
    new_string << i
   end
@@ -55,6 +55,7 @@ end
 #output: all the consonant in the string moved to the next letter in the consonant alphabet
 
 def next_consonant(string)
+  hash = {}
   new_con_array = []
   new_string = ""
   split_string = string.split("")
@@ -66,8 +67,13 @@ def next_consonant(string)
   cons.each do |letter|
     new_con_array << letter.next
   end
-  #=>["c", "d", "e", "g", "h", "i", "k", "l", "m",
-  #"n", "o", "q", "r", "s", "t", "u", "w", "x", "y", "z", "aa"]
+
+  cons.each do |letter|
+    hash[letter] = letter.next
+  end
+
+  #=>["c", "d", "e", "g", "h", "i", "k", "l",
+  #  "m", "n", "o", "q", "r", "s", "t", "u", "w", "x", "y", "z", "aa"]
 
   split_string.each do |i|
     case i
@@ -119,6 +125,8 @@ def next_consonant(string)
   new_string
 end
 
+
+
 # combines the methods swap_names, next_vowel, and next_consonant to make an alias key
 #input: string
 #output: all the vowels and the consonants in the string moved to the next letter and the first and last name will be swapped
@@ -135,14 +143,21 @@ def spy_alias(string)
   swap_names.each do |name|
     new_name << name + " "
   end
-  new_name.rstrip
+  next_consonant_name = next_consonant(new_name.downcase)
 
-  next_consonant_name = next_consonant(new_name)
+  second_alias = next_vowel(next_consonant_name)
 
-  final_alias = next_vowel(next_consonant_name)
+  split = second_alias.split(" ")
 
-  final_alias.rstrip
+  final_alias = ""
+  split.each do |name|
+  final_alias << name.capitalize + " "
+  end
+
+final_alias.rstrip
 
 end
 
 p spy_alias("Felicia Torres")
+
+#=> "Vussit Gimodoe"
