@@ -8,14 +8,24 @@
     # Change the vowels of the name to the next vowel in "a,e,i,o,u" and change
     # the consonants to the next consonants in the alphabet.
 
-def alias(string_name)
-  split_names = string.split_string
+
+
+# a method that takes a string name a reverses the first and last name
+# input: a string that represents a full name
+# output: the string names reversed
+def swap_names(string_name)
+  split_names = string_name.split(" ")
   #=> ['Long','Tran']
-  swap_names = split_names.shuffle
-  return swap_names
+  new_name = ""
+  swap_names = split_names.rotate
+
+  swap_names.each do |name|
+    new_name << name + " "
+  end
+  new_name.rstrip
 end
 
-# takes a string and moves the each vowel to the next vowel in 'aeiou'
+# takes a string and returns the string with the vowels replaced with the next vowel in "aeiou"
 #input: string
 #output: all the vowels in the string moved to the next letter in the 'aeiou'
 def next_vowel(string)
@@ -40,20 +50,99 @@ def next_vowel(string)
    new_string
 end
 
-p next_vowel('Long Tran')
+# takes a string and returns the string with the consonants replaced with the next consonant
+#input: string
+#output: all the consonant in the string moved to the next letter in the consonant alphabet
+
+def next_consonant(string)
+  new_con_array = []
+  new_string = ""
+  split_string = string.split("")
+ #=> ["L", "o", "n", "g"]
+
+  cons = ['b','c','d','f','g','h','j',
+  'k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+
+  cons.each do |letter|
+    new_con_array << letter.next
+  end
+  #=>["c", "d", "e", "g", "h", "i", "k", "l", "m",
+  #"n", "o", "q", "r", "s", "t", "u", "w", "x", "y", "z", "aa"]
+
+  split_string.each do |i|
+    case i
+    when cons[0]
+      i = new_con_array[0]
+    when cons[1]
+      i = new_con_array[1]
+    when cons[2]
+      i = new_con_array[2]
+    when cons[3]
+      i = new_con_array[3]
+    when cons[4]
+      i = new_con_array[4]
+    when cons[5]
+      i = new_con_array[5]
+    when cons[6]
+      i = new_con_array[6]
+    when cons[7]
+      i = new_con_array[7]
+    when cons[8]
+      i = new_con_array[8]
+    when cons[9]
+      i = new_con_array[9]
+    when cons[10]
+      i = new_con_array[10]
+    when cons[11]
+      i = new_con_array[11]
+    when cons[12]
+      i = new_con_array[12]
+    when cons[13]
+      i = new_con_array[13]
+    when cons[14]
+      i = new_con_array[14]
+    when cons[15]
+      i = new_con_array[15]
+    when cons[16]
+      i = new_con_array[16]
+    when cons[17]
+      i = new_con_array[17]
+    when cons[18]
+      i = new_con_array[18]
+    when cons[19]
+      i = new_con_array[19]
+    when cons[20]
+      i = new_con_array[20]
+    end
+    new_string << i
+  end
+  new_string
+end
+
+# combines the methods swap_names, next_vowel, and next_consonant to make an alias key
+#input: string
+#output: all the vowels and the consonants in the string moved to the next letter and the first and last name will be swapped
 
 
+def spy_alias(string)
 
 
-# vowels = ['a','e','i','o','u']
-# if vowels.index(char) == 0
-#   char = 'e'
-# elsif vowels.index(char) == 1
-#   char = 'i'
-# elsif vowels.index(char) == 2
-#   char = 'o'
-# elsif vowels.index(char) == 3
-#   char = 'o'
-# elsif vowels.index(char) == 4
-#   char = 'a'
-# end
+  split_names = string.split(" ")
+  #=> ['Long','Tran']
+  new_name = ""
+  swap_names = split_names.rotate
+
+  swap_names.each do |name|
+    new_name << name + " "
+  end
+  new_name.rstrip
+
+  next_consonant_name = next_consonant(new_name)
+
+  final_alias = next_vowel(next_consonant_name)
+
+  final_alias.rstrip
+
+end
+
+p spy_alias("Felicia Torres")
