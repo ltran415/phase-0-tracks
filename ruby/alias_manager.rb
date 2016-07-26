@@ -161,3 +161,19 @@ end
 p spy_alias("Felicia Torres")
 
 #=> "Vussit Gimodoe"
+
+# user interface
+
+
+user_input = nil
+until user_input == "done"
+
+  puts "Welcome to the alias spy name maker. Please enter in a first and last name in this format 'first_name last_name'. Type done to exit."
+  unless gets.chomp == 'done'
+    user_input = gets.chomp
+
+    spy_name = spy_alias(user_input)
+
+    puts "Your spy name is: #{spy_name}"
+  end
+end
