@@ -1,10 +1,11 @@
 console.log("Hello World");
 
-var title = document.getElementsByTagName('h1');
-title[0].style.border = '3px solid red';
+function addRedBorder(event) {
+event.target.style.border = '3px solid red';
+};
 
-
-
+var title = document.getElementById('title');
+title.addEventListener('click', addRedBorder);
 
 
 
