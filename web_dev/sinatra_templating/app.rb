@@ -17,7 +17,9 @@ get '/students/new' do
   erb :new_student
 end
 
+# list all students under 30 years of age
 get '/students/report' do
+  @student_report = db.execute("SELECT * FROM students WHERE age < 30")
   erb :student_report
 end
 

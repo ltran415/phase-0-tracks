@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>Student Report</title>
@@ -6,6 +5,10 @@
 <body>
   <h1>Student Reports</h1>
   <p>Here is a list of students under 30 years old.</p>
-  Hello World
+  <ul>
+    <% @student_report.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+  </ul>
 </body>
 </html>
