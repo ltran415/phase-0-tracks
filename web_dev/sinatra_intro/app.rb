@@ -19,9 +19,24 @@ get '/about/:person' do
   "#{person} is a programmer, and #{person} is learning Sinatra."
 end
 
-get '/:person_1/loves/:person_2' do
-  "#{params[:person_1]} loves #{params[:person_2]}"
+# write a GET route that displays a person's address
+get '/contact/:person' do
+  person = params[:person]
+  "This is #{person}'s address: 342 Tehama st"
 end
+
+# write a GET route that can take a person's name as a query param and say
+# "Good job, [person's name]!". If the query parameter is not present,
+# the route simply says "Good job!"
+get '/great_job/:person' do
+  person = params[:person]
+  if person
+  "Good job #{person}!"
+  else
+  "Good job!"
+  end
+end
+
 
 # write a GET route that retrieves
 # all student data
