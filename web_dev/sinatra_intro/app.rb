@@ -19,21 +19,10 @@ get '/about/:person' do
   "#{person} is a programmer, and #{person} is learning Sinatra."
 end
 
-<<<<<<< HEAD
-# write a GET route that displays a person's address
-get '/contact/:person' do
-  person = params[:person]
-  "This is #{person}'s address: 342 Tehama st"
-=======
 # write a get ROUTE that displays a persons address
 get '/contact/:person' do
   person = params[:person]
   "This is #{person}'s address: 342 Tehama st"
-end
-
-get '/:person_1/loves/:person_2' do
-  "#{params[:person_1]} loves #{params[:person_2]}"
->>>>>>> 869cb1f68d9ff3ba7db320c9621065ae78fae5bb
 end
 
 # write a GET route that can take a person's name as a query param and say
@@ -45,6 +34,17 @@ get '/great_job/:person' do
   "Good job #{person}!"
   else
   "Good job!"
+  end
+end
+# write a Get route that uses route parameters
+# to add two numbers and respond with the resul
+get '/:number_1/+/:nunmber_2' do
+  number_1 = params[:number_1].to_i
+  nunmber_2 = params[:nunmber_2].to_i
+  result = params[:number_1] + params[:nunmber_2]
+  if number_1
+    result = number_1.to_i + nunmber_2.to_i
+    "The result of #{number_1} plus #{nunmber_2} is #{result}"
   end
 end
 
