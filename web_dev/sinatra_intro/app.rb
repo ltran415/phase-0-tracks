@@ -19,10 +19,21 @@ get '/about/:person' do
   "#{person} is a programmer, and #{person} is learning Sinatra."
 end
 
+<<<<<<< HEAD
 # write a GET route that displays a person's address
 get '/contact/:person' do
   person = params[:person]
   "This is #{person}'s address: 342 Tehama st"
+=======
+# write a get ROUTE that displays a persons address
+get '/contact/:person' do
+  person = params[:person]
+  "This is #{person}'s address: 342 Tehama st"
+end
+
+get '/:person_1/loves/:person_2' do
+  "#{params[:person_1]} loves #{params[:person_2]}"
+>>>>>>> 869cb1f68d9ff3ba7db320c9621065ae78fae5bb
 end
 
 # write a GET route that can take a person's name as a query param and say
